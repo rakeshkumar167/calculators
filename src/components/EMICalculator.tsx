@@ -70,47 +70,71 @@ const EMICalculator: React.FC = () => {
         <div className="space-y-6">
           <div className="bg-gray-50 p-4 rounded-lg">
             <h3 className="text-lg font-semibold text-gray-800 mb-4">Loan Summary</h3>
-            <div className="space-y-2">
-              <p className="flex justify-between">
+            <div className="space-y-3">
+              <div className="flex flex-col sm:flex-row sm:justify-between gap-1">
                 <span className="text-gray-600">Monthly EMI:</span>
-                <span className="font-semibold">{formatIndianCurrency(result.monthlyEMI)}</span>
-              </p>
-              <p className="flex justify-between">
+                <span className="font-semibold text-right">{formatIndianCurrency(result.monthlyEMI)}</span>
+              </div>
+              <div className="flex flex-col sm:flex-row sm:justify-between gap-1">
                 <span className="text-gray-600">Total Interest:</span>
-                <span className="font-semibold">{formatIndianCurrency(result.totalInterest)}</span>
-              </p>
-              <p className="flex justify-between">
+                <span className="font-semibold text-right">{formatIndianCurrency(result.totalInterest)}</span>
+              </div>
+              <div className="flex flex-col sm:flex-row sm:justify-between gap-1">
                 <span className="text-gray-600">Total Amount:</span>
-                <span className="font-semibold">{formatIndianCurrency(result.totalAmount)}</span>
-              </p>
+                <span className="font-semibold text-right">{formatIndianCurrency(result.totalAmount)}</span>
+              </div>
             </div>
           </div>
 
           <div>
             <h3 className="text-lg font-semibold text-gray-800 mb-4">EMI Schedule</h3>
-            <div className="overflow-auto max-h-[400px] border border-gray-200 rounded-lg">
-              <table className="min-w-full divide-y divide-gray-200">
-                <thead className="bg-gray-50 sticky top-0">
-                  <tr>
-                    <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Month</th>
-                    <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">EMI</th>
-                    <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Principal</th>
-                    <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Interest</th>
-                    <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Balance</th>
-                  </tr>
-                </thead>
-                <tbody className="bg-white divide-y divide-gray-200">
-                  {result.amortizationSchedule.map((payment) => (
-                    <tr key={payment.month}>
-                      <td className="px-4 py-3 whitespace-nowrap text-sm text-gray-500">{payment.month}</td>
-                      <td className="px-4 py-3 whitespace-nowrap text-sm text-gray-900">{formatIndianCurrency(payment.emi)}</td>
-                      <td className="px-4 py-3 whitespace-nowrap text-sm text-gray-900">{formatIndianCurrency(payment.principal)}</td>
-                      <td className="px-4 py-3 whitespace-nowrap text-sm text-gray-900">{formatIndianCurrency(payment.interest)}</td>
-                      <td className="px-4 py-3 whitespace-nowrap text-sm text-gray-900">{formatIndianCurrency(payment.balance)}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
+            <div className="overflow-x-auto -mx-4 sm:mx-0">
+              <div className="inline-block min-w-full align-middle">
+                <div className="overflow-hidden border border-gray-200 sm:rounded-lg">
+                  <table className="min-w-full divide-y divide-gray-200">
+                    <thead className="bg-gray-50">
+                      <tr>
+                        <th scope="col" className="py-2 px-2 sm:px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                          Month
+                        </th>
+                        <th scope="col" className="py-2 px-2 sm:px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                          EMI
+                        </th>
+                        <th scope="col" className="py-2 px-2 sm:px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                          Principal
+                        </th>
+                        <th scope="col" className="py-2 px-2 sm:px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                          Interest
+                        </th>
+                        <th scope="col" className="py-2 px-2 sm:px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
+                          Balance
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody className="bg-white divide-y divide-gray-200">
+                      {result.amortizationSchedule.map((payment) => (
+                        <tr key={payment.month} className="hover:bg-gray-50">
+                          <td className="py-2 px-2 sm:px-4 text-xs sm:text-sm text-gray-500 whitespace-nowrap">
+                            {payment.month}
+                          </td>
+                          <td className="py-2 px-2 sm:px-4 text-xs sm:text-sm text-gray-900 whitespace-nowrap">
+                            {formatIndianCurrency(payment.emi)}
+                          </td>
+                          <td className="py-2 px-2 sm:px-4 text-xs sm:text-sm text-gray-900 whitespace-nowrap">
+                            {formatIndianCurrency(payment.principal)}
+                          </td>
+                          <td className="py-2 px-2 sm:px-4 text-xs sm:text-sm text-gray-900 whitespace-nowrap">
+                            {formatIndianCurrency(payment.interest)}
+                          </td>
+                          <td className="py-2 px-2 sm:px-4 text-xs sm:text-sm text-gray-900 whitespace-nowrap">
+                            {formatIndianCurrency(payment.balance)}
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </div>
             </div>
           </div>
         </div>
