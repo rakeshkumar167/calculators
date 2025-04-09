@@ -19,7 +19,7 @@ const EMICalculator: React.FC = () => {
   };
 
   return (
-    <div className="grid md:grid-cols-2 gap-6">
+    <div className="grid lg:grid-cols-2 gap-6">
       <div className="space-y-4">
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-1">
@@ -88,25 +88,25 @@ const EMICalculator: React.FC = () => {
 
           <div>
             <h3 className="text-lg font-semibold text-gray-800 mb-4">EMI Schedule</h3>
-            <div className="overflow-auto max-h-[calc(100vh-24rem)] border border-gray-200 rounded-lg">
+            <div className="overflow-auto max-h-[400px] border border-gray-200 rounded-lg">
               <table className="min-w-full divide-y divide-gray-200">
                 <thead className="bg-gray-50 sticky top-0">
                   <tr>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Month</th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">EMI</th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Principal</th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Interest</th>
-                    <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Balance</th>
+                    <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Month</th>
+                    <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">EMI</th>
+                    <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Principal</th>
+                    <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Interest</th>
+                    <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Balance</th>
                   </tr>
                 </thead>
                 <tbody className="bg-white divide-y divide-gray-200">
                   {result.amortizationSchedule.map((payment) => (
                     <tr key={payment.month}>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">{payment.month}</td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{formatIndianCurrency(payment.emi)}</td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{formatIndianCurrency(payment.principal)}</td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{formatIndianCurrency(payment.interest)}</td>
-                      <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-900">{formatIndianCurrency(payment.balance)}</td>
+                      <td className="px-4 py-3 whitespace-nowrap text-sm text-gray-500">{payment.month}</td>
+                      <td className="px-4 py-3 whitespace-nowrap text-sm text-gray-900">{formatIndianCurrency(payment.emi)}</td>
+                      <td className="px-4 py-3 whitespace-nowrap text-sm text-gray-900">{formatIndianCurrency(payment.principal)}</td>
+                      <td className="px-4 py-3 whitespace-nowrap text-sm text-gray-900">{formatIndianCurrency(payment.interest)}</td>
+                      <td className="px-4 py-3 whitespace-nowrap text-sm text-gray-900">{formatIndianCurrency(payment.balance)}</td>
                     </tr>
                   ))}
                 </tbody>

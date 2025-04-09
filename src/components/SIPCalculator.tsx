@@ -20,7 +20,7 @@ const SIPCalculator: React.FC = () => {
   };
 
   return (
-    <div className="grid md:grid-cols-2 gap-6">
+    <div className="grid lg:grid-cols-2 gap-6">
       <div className="space-y-4">
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-1">
@@ -87,16 +87,16 @@ const SIPCalculator: React.FC = () => {
             </div>
           </div>
 
-          <div className="h-96">
+          <div className="h-[400px] min-h-[400px]">
             <h3 className="text-lg font-semibold text-gray-800 mb-4">Growth Projection</h3>
             <ResponsiveContainer width="100%" height="100%">
               <LineChart
                 data={result.growthData}
                 margin={{
-                  top: 5,
+                  top: 20,
                   right: 30,
                   left: 20,
-                  bottom: 25
+                  bottom: 30
                 }}
               >
                 <CartesianGrid strokeDasharray="3 3" />
